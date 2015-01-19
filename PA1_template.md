@@ -24,7 +24,7 @@ data1 <- data[!rowSums(is.na(data[c("steps","date","interval")])), ]
 sumsteps <- aggregate(data1$steps,by=list(data1$date),FUN=sum)
 colnames(sumsteps) <- c("date","steps")
 
-hist(sumsteps$steps,col="grey", xlab="Tatal Steps",
+hist(sumsteps$steps,col="grey", xlab="Total Steps",
      main="Total Steps per date")
 ```
 
@@ -157,4 +157,3 @@ plot(meanstpesweekend$interval,meanstpesweekend$meansteps,type="l",ylab=" Number
 ```
 
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
-list.files()

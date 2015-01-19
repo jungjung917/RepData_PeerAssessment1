@@ -22,7 +22,7 @@ data1 <- data[!rowSums(is.na(data[c("steps","date","interval")])), ]
 sumsteps <- aggregate(data1$steps,by=list(data1$date),FUN=sum)
 colnames(sumsteps) <- c("date","steps")
 
-hist(sumsteps$steps,col="grey", xlab="Tatal Steps",
+hist(sumsteps$steps,col="grey", xlab="Total Steps",
      main="Total Steps per date")
 
 ```
@@ -120,10 +120,7 @@ colnames(meanstpesweekend) <- c("interval","meansteps")
 ```
 
 ```{r echo=TRUE}
-
 par(mfcol = c(2,1),mar=c(4,4,2,2))
 plot(meanstpesweekday$interval,meanstpesweekday$meansteps,type="l",ylab="Numbers of steps", xlab="Time interval",main="weekday")
 plot(meanstpesweekend$interval,meanstpesweekend$meansteps,type="l",ylab=" Number of steps", xlab="Time interval",main="weekend")
-
 ```
-

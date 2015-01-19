@@ -55,16 +55,12 @@ sum(rowSums(is.na(data[c("steps","date","interval")])))
 
 ### 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated.
 
-
-```{r averagestep,echo=TRUE}
-meanstpes2 <- aggregate(data1$steps,by=list(data1$date),FUN=mean)
-colnames(meanstpes2) <- c("date","steps")
-plot(meanstpes2$date,meanstpes2$steps,type = "l",ylab="Average steps", xlab="Date")
-```
 ### The average steps per date is much more steady than those per time interval. Thus, for missing values, I use mean step value for day instead of mean step value for time interval. 
 
 ### 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 ```{r filldata,echo=TRUE}
+meanstpes2 <- aggregate(data1$steps,by=list(data1$date),FUN=mean)
+colnames(meanstpes2) <- c("date","steps")
 datafilled <- data
 nasteps <- is.na(data[1])
 for (i in 1:nrow(data)) {

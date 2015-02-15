@@ -7,7 +7,7 @@ keep_md: true
 
 
 ## Loading and preprocessing the data
-### Loading data to "data" and "data1"" is the data after excluded NA values from "data"    
+### Loading data to "data", "data1" is NA excluded "data".  
 
 
 ```r
@@ -35,6 +35,15 @@ hist(sumsteps$steps,col="grey", xlab="Total Steps",
 ```r
 meansteps <- mean(sumsteps$steps)
 mediansteps <- median(sumsteps$steps)
+meansteps; mediansteps
+```
+
+```
+## [1] 10766.19
+```
+
+```
+## [1] 10765
 ```
 The mean value and median total number of steps taken per day are 10766.19 and 10765.
 
@@ -49,6 +58,7 @@ plot(meanstpes$interval,meanstpes$meansteps,type="l",ylab="Average steps", xlab=
 ```
 
 ![plot of chunk averageActivity](figure/averageActivity-1.png) 
+
 ### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 ```r
@@ -108,6 +118,15 @@ hist(sumsteps1$steps,col="grey", xlab="Tatal Steps",
 ```r
 meansteps1 <- mean(sumsteps1$steps)
 mediansteps1 <- median(sumsteps1$steps)
+meansteps1; mediansteps1
+```
+
+```
+## [1] 10766.19
+```
+
+```
+## [1] 10766.19
 ```
 ### The mean and median step value per date are 10766.19 and 10766.19. Compared to the results above, the mean value does not chaned, because I replaced missing values by mean step value per date. Median value changed slightly, because I gave values for missing values, thus, the number of samples to calculate median is changed. 
 

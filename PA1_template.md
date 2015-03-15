@@ -11,7 +11,11 @@ keep_md: true
 
 
 ```r
-data <- read.csv(unz("activity.zip", "activity.csv"), header=T, sep=",")
+url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+filename <- "./activity_new.zip"
+methoud <- "curl"
+download.file(url,filename, methoud)
+data <- read.csv(unz("activity_new.zip", "activity.csv"), header=T, sep=",")
 data$date <- as.Date(data$date)
 data1 <- data[!rowSums(is.na(data[c("steps","date","interval")])), ]
 ```
